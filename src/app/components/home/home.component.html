@@ -1,0 +1,9 @@
+<div class="card-columns">
+
+    <div class="card border-success mb-3" *ngFor="let lista of listas">
+      <img class="card-img-top" [src]="lista.images[0].url" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{lista.name}}</h5>
+      </div>
+    </div>
+</div>
