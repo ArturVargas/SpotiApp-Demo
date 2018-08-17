@@ -9,9 +9,13 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { PlaylistComponent } from './components/artist/playlist.component';
+
 
 // Rutas
 import { ROUTES } from './app.routes';
+
 
 
 @NgModule({
@@ -20,7 +24,9 @@ import { ROUTES } from './app.routes';
     HomeComponent,
     SearchComponent,
     ArtistComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoadingComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,

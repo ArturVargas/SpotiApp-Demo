@@ -4,3 +4,15 @@
     <input #termino type="text" (keyup)="search(termino.value)" class="form-control" placeholder="Buscar Artista">
   </div>
 </div>
+
+<app-loading class="m-5" *ngIf="loading"></app-loading>
+
+<div class="card-columns m-5" *ngIf="!loading">
+
+  <div (click)="verArtista(artist)" class="card border-info mb-3 puntero" *ngFor="let artist of artistas">
+    <img class="card-img-top" [src]="artist.images[0].url" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{artist.name}}</h5>
+    </div>
+  </div>
+</div>

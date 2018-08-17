@@ -1,6 +1,14 @@
-<div class="card-columns">
 
-    <div class="card border-success mb-3" *ngFor="let lista of listas">
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+  <h3>Error</h3>
+  <p> {{errorMessage}} </p>
+</div>
+
+<div class="card-columns animated fadeIn">
+
+    <div (click)="verPlaylist(lista)" class="card border-success mb-3 puntero" *ngFor="let lista of listas">
       <img class="card-img-top" [src]="lista.images[0].url" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title text-center">{{lista.name}}</h5>

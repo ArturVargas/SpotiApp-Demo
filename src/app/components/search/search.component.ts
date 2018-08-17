@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SpotifyService } from '../../services/spotify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,10 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent {
 
-  constructor() { }
+  artistas: any[] = [];
+  loading: boolean;
 
-  search(termino: string){
-    console.log(termino);
+  constructor( private spf: SpotifyService, private router: Router) { }
+
+  search(termino: string) {
+    // console.log(termino);
+    this.loading = true;
+    this.spf.searchArtist( termino )
+      .subscribe( ( res: any) => {
+        console.log(res);
+        this.artistas = res;
+        this.loading = false;
+      });
+  }
+
+  verArtista( item: any) {
+    console.log (item.id);
+    let artistId;
+    if (item.type === 'artist') {
+      artistId = item.id;
+    }
+    this.router.navigate(['/artist', artistId]);
   }
 
 }
